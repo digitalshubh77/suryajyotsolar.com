@@ -196,18 +196,29 @@ h4 {
   animation: marquee 40s linear infinite;
 }
 
-@keyframes float-slow {
-  0%,
-  100% {
-    transform: translateY(0);
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: translateY(-8px);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+.aura-ring {
+  background: conic-gradient(
+    from 0deg,
+    rgba(212, 176, 106, 0.55),
+    rgba(184, 134, 42, 0.05) 30%,
+    transparent 50%,
+    rgba(212, 176, 106, 0.4) 80%,
+    rgba(212, 176, 106, 0.55)
+  );
+  filter: blur(40px);
 }
 
 .gradient-ring {

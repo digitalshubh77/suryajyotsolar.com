@@ -3,7 +3,9 @@ import { Button, Eyebrow, SectionHeading } from "@/components/ui";
 import {
   BankIcon,
   CheckIcon,
+  ClockIcon,
   ShieldIcon,
+  BoltIcon,
   SunIcon,
   serviceIconMap,
 } from "@/components/icons";
@@ -11,6 +13,7 @@ import { Reveal } from "@/components/Reveal";
 import { Marquee } from "@/components/Marquee";
 import { HeroHeadline } from "@/components/HeroHeadline";
 import { GlowCard } from "@/components/GlowCard";
+import { SolarBackground } from "@/components/SolarBackground";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { WaveDivider } from "@/components/WaveDivider";
 import {
@@ -29,6 +32,8 @@ const heroHighlights = [
   "Finance & subsidy guidance",
 ];
 
+const statIcons = [CheckIcon, ClockIcon, ShieldIcon, BoltIcon];
+
 export default function Home() {
   return (
     <>
@@ -37,23 +42,25 @@ export default function Home() {
         <div className="mesh-navy absolute inset-0" />
         <div className="grid-texture absolute inset-0 opacity-20" />
         <div className="noise-overlay" />
-        <div className="pointer-events-none absolute -right-20 top-0 h-[420px] w-[420px] rounded-full bg-sun-500/15 blur-3xl" />
 
-        <div className="section-container relative pb-28 pt-14 sm:pt-20 lg:pb-36 lg:pt-24">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* Animated solar-themed background */}
+        <SolarBackground />
+
+        <div className="section-container relative pb-20 pt-10 sm:pt-14 lg:pb-24 lg:pt-16">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
             <Reveal>
               <span className="hero-badge">
                 <SunIcon className="h-3.5 w-3.5" />
                 Kolhapur District
               </span>
               <HeroHeadline />
-              <p className="mt-5 max-w-lg text-[15px] leading-[1.75] text-navy-200 sm:text-base">
+              <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-navy-200 sm:text-base">
                 End-to-end rooftop solar for homes, businesses, and industries.
                 One local team handles assessment, installation, and net
                 metering across {site.serviceArea}.
               </p>
 
-              <ul className="mt-6 space-y-2.5">
+              <ul className="mt-5 space-y-2">
                 {heroHighlights.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-navy-200">
                     <CheckIcon className="h-4 w-4 shrink-0 text-sun-400" />
@@ -62,7 +69,7 @@ export default function Home() {
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href={site.whatsappHref} variant="primary">
                   Book a Free Site Visit
                 </Button>
@@ -77,14 +84,15 @@ export default function Home() {
             </Reveal>
 
             <Reveal delay={100} className="relative">
+              <div className="animate-spin-slow aura-ring pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-70" />
               <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.55)]">
                 <Image
                   src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80"
                   alt="Rooftop solar panel installation under sunlight"
                   width={900}
-                  height={1000}
+                  height={620}
                   priority
-                  className="aspect-[4/5] w-full object-cover sm:aspect-[5/6]"
+                  className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[360px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent" />
               </div>
@@ -118,24 +126,30 @@ export default function Home() {
       <section className="relative z-10 -mt-1 bg-background pb-4 pt-2">
         <div className="section-container">
           <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_20px_50px_-28px_rgba(11,18,32,0.2)] lg:grid-cols-4">
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`px-5 py-8 text-center ${
-                  i < stats.length - 1 ? "lg:border-r lg:border-navy-900/8" : ""
-                } ${i % 2 === 0 ? "border-r border-navy-900/8 lg:border-r" : ""} ${
-                  i < 2 ? "border-b border-navy-900/8 lg:border-b-0" : ""
-                }`}
-              >
-                <AnimatedCounter
-                  value={s.value}
-                  className="block text-3xl font-semibold text-navy-900"
-                />
-                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
-                  {s.label}
-                </p>
-              </div>
-            ))}
+            {stats.map((s, i) => {
+              const Icon = statIcons[i % statIcons.length];
+              return (
+                <div
+                  key={s.label}
+                  className={`px-5 py-8 text-center ${
+                    i < stats.length - 1 ? "lg:border-r lg:border-navy-900/8" : ""
+                  } ${i % 2 === 0 ? "border-r border-navy-900/8 lg:border-r" : ""} ${
+                    i < 2 ? "border-b border-navy-900/8 lg:border-b-0" : ""
+                  }`}
+                >
+                  <span className="mx-auto flex h-9 w-9 items-center justify-center rounded-lg bg-sun-50 text-sun-600">
+                    <Icon className="h-4.5 w-4.5" />
+                  </span>
+                  <AnimatedCounter
+                    value={s.value}
+                    className="mt-3 block text-3xl font-semibold text-navy-900"
+                  />
+                  <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
+                    {s.label}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -212,8 +226,9 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="section-pad bg-white">
-        <div className="section-container">
+      <section className="relative overflow-hidden section-pad bg-white">
+        <div className="pointer-events-none absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-sun-500/8 blur-3xl" />
+        <div className="section-container relative">
           <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
             <Reveal className="relative order-2 lg:order-1">
               <div className="overflow-hidden rounded-2xl">
@@ -291,12 +306,16 @@ export default function Home() {
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item, i) => (
               <Reveal key={item} delay={i * 45}>
-                <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                <GlowCard
+                  dark
+                  ring={false}
+                  className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-colors duration-300 hover:border-sun-400/25 hover:bg-white/[0.07]"
+                >
                   <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-sun-500/20 text-sun-400">
                     <CheckIcon className="h-4 w-4" />
                   </span>
                   <p className="text-sm leading-relaxed text-navy-200">{item}</p>
-                </div>
+                </GlowCard>
               </Reveal>
             ))}
           </div>
@@ -317,7 +336,10 @@ export default function Home() {
           <div className="mt-14 space-y-4">
             {processSteps.map((step, i) => (
               <Reveal key={step.step} delay={i * 60}>
-                <div className="flex flex-col gap-4 rounded-2xl border border-navy-900/8 bg-navy-50/40 p-5 sm:flex-row sm:items-center sm:gap-6">
+                <GlowCard
+                  ring={false}
+                  className="flex flex-col gap-4 rounded-2xl border border-navy-900/8 bg-navy-50/40 p-5 transition-colors duration-300 hover:border-sun-400/30 hover:bg-white sm:flex-row sm:items-center sm:gap-6"
+                >
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sm font-semibold text-sun-400">
                     {step.step}
                   </div>
@@ -329,7 +351,7 @@ export default function Home() {
                       {step.description}
                     </p>
                   </div>
-                </div>
+                </GlowCard>
               </Reveal>
             ))}
           </div>

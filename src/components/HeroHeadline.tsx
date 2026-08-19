@@ -22,7 +22,7 @@ export function HeroHeadline() {
       initial="hidden"
       animate="visible"
       variants={container}
-      className="mt-6 max-w-xl text-[38px] font-semibold leading-[1.08] tracking-tight text-white sm:text-[46px] lg:text-[54px]"
+      className="mt-4 max-w-xl text-[32px] font-semibold leading-[1.1] tracking-tight text-white sm:text-[40px] lg:text-[46px]"
     >
       <motion.span variants={item} className="block">
         Power Your Life
