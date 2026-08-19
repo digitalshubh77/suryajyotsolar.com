@@ -57,13 +57,13 @@ export default function ContactPage() {
       <section id="site-visit" className="section-pad scroll-mt-24">
         <div
           id="quotation"
-          className="mx-auto grid max-w-7xl gap-10 px-6 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+          className="section-container grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
         >
           <div className="space-y-3">
             {contactCards.map((card, i) => {
               const Content = (
-                <GlowCard className="group flex items-start gap-4 rounded-lg border border-navy-900/8 bg-white p-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy-900 text-sun-400">
+                <GlowCard className="group flex items-start gap-4 rounded-2xl surface-card p-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-sun-400">
                     <card.icon className="h-4.5 w-4.5" />
                   </span>
                   <div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
             })}
 
             <Reveal delay={contactCards.length * 60}>
-              <div className="rounded-lg bg-navy-900 p-6 text-white">
+              <div className="relative overflow-hidden rounded-2xl bg-navy-900 p-6 text-white">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sun-400">
                   Service Area
                 </p>

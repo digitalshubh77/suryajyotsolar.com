@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Button, PageHero } from "@/components/ui";
+import { PageCta, PageHero } from "@/components/ui";
 import {
   BankIcon,
   BoltIcon,
@@ -31,9 +31,9 @@ export default function WhyChooseUsPage() {
       />
 
       <section className="section-pad">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        <div className="section-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative order-2 lg:order-1">
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-2xl">
               <Image
                 src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=80"
                 alt="Technicians working on a solar installation"
@@ -42,7 +42,7 @@ export default function WhyChooseUsPage() {
                 className="h-[380px] w-full object-cover sm:h-[480px]"
               />
             </div>
-            <div className="absolute -bottom-5 right-4 w-52 rounded-md border border-navy-900/8 bg-white p-4 shadow-[0_16px_40px_-20px_rgba(11,18,32,0.25)] sm:right-6">
+            <div className="glass-card absolute -bottom-5 right-4 w-52 rounded-xl p-4 sm:right-6">
               <p className="text-sm font-semibold text-navy-900">
                 Trusted by 50+ customers
               </p>
@@ -56,8 +56,8 @@ export default function WhyChooseUsPage() {
                 const Icon = icons[i % icons.length];
                 return (
                   <Reveal key={item} delay={i * 50}>
-                    <GlowCard className="group flex items-center gap-3.5 rounded-lg border border-navy-900/8 bg-white p-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-navy-50 text-navy-800">
+                    <GlowCard className="group flex items-center gap-3.5 rounded-xl surface-card p-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-50 text-navy-800">
                         <Icon className="h-5 w-5" />
                       </span>
                       <p className="text-sm font-medium leading-relaxed text-navy-800">
@@ -69,10 +69,17 @@ export default function WhyChooseUsPage() {
                 );
               })}
             </div>
-            <Button href="/contact" variant="primary" className="mt-7">
-              Work With Us
-            </Button>
           </div>
+        </div>
+      </section>
+
+      <section className="section-pad bg-white pt-0">
+        <div className="section-container">
+          <PageCta
+            title="Work with a local Kolhapur solar team"
+            description="Certified installation, trusted brands, and support after handover."
+            primaryLabel="Work With Us"
+          />
         </div>
       </section>
     </>

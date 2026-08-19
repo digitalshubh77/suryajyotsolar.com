@@ -6,7 +6,6 @@ import {
   ClockIcon,
   ShieldIcon,
   BoltIcon,
-  SunIcon,
   serviceIconMap,
 } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
@@ -42,34 +41,37 @@ export default function Home() {
         <div className="mesh-navy absolute inset-0" />
         <div className="grid-texture absolute inset-0 opacity-20" />
         <div className="noise-overlay" />
-
-        {/* Animated solar-themed background */}
         <SolarBackground />
 
-        <div className="section-container relative pb-20 pt-10 sm:pt-14 lg:pb-24 lg:pt-16">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="section-container relative pb-24 pt-12 sm:pt-16 lg:pb-32 lg:pt-20">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <span className="hero-badge">
-                <SunIcon className="h-3.5 w-3.5" />
-                Kolhapur District
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-sun-400 opacity-60 animate-pulse-dot" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-sun-400" />
+                </span>
+                Serving Kolhapur District
               </span>
               <HeroHeadline />
-              <p className="mt-4 max-w-lg text-[15px] leading-[1.7] text-navy-200 sm:text-base">
+              <p className="mt-5 max-w-lg text-[15px] leading-[1.75] text-navy-200 sm:text-base">
                 End-to-end rooftop solar for homes, businesses, and industries.
                 One local team handles assessment, installation, and net
                 metering across {site.serviceArea}.
               </p>
 
-              <ul className="mt-5 space-y-2">
+              <ul className="mt-6 space-y-2.5">
                 {heroHighlights.map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-navy-200">
-                    <CheckIcon className="h-4 w-4 shrink-0 text-sun-400" />
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sun-500/15">
+                      <CheckIcon className="h-3.5 w-3.5 text-sun-400" />
+                    </span>
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <Button href={site.whatsappHref} variant="primary">
                   Book a Free Site Visit
                 </Button>
@@ -83,22 +85,27 @@ export default function Home() {
               </div>
             </Reveal>
 
-            <Reveal delay={100} className="relative">
-              <div className="animate-spin-slow aura-ring pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] opacity-70" />
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.55)]">
+            <Reveal delay={100} className="relative pb-8">
+              <div className="hero-orbit pointer-events-none absolute -inset-7 -z-10 rounded-[2.4rem]" />
+              <div className="aura-ring animate-spin-slow pointer-events-none absolute -inset-10 -z-20 rounded-[2.5rem] opacity-50" />
+              <div className="relative overflow-hidden rounded-2xl border border-white/12 shadow-[0_40px_80px_-28px_rgba(0,0,0,0.6)]">
                 <Image
                   src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80"
                   alt="Rooftop solar panel installation under sunlight"
                   width={900}
                   height={620}
                   priority
-                  className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[360px]"
+                  className="h-[280px] w-full object-cover sm:h-[340px] lg:h-[400px]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/15 to-transparent" />
+                <div className="hero-shine" />
+                <div className="absolute left-4 top-4 rounded-full border border-white/15 bg-navy-900/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md">
+                  Rooftop Solar
+                </div>
               </div>
 
-              <div className="absolute -bottom-5 left-4 right-4 grid grid-cols-2 gap-3 sm:-bottom-6 sm:left-6 sm:right-6">
-                <div className="surface-card rounded-xl p-4">
+              <div className="absolute -bottom-2 left-3 right-3 grid grid-cols-2 gap-3 sm:left-6 sm:right-6">
+                <div className="glass-card hero-float rounded-xl p-4">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
                     Panel Warranty
                   </p>
@@ -106,7 +113,7 @@ export default function Home() {
                     30 Years Performance
                   </p>
                 </div>
-                <div className="surface-card rounded-xl p-4">
+                <div className="glass-card hero-float-delay rounded-xl p-4">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
                     Installation
                   </p>
@@ -292,6 +299,7 @@ export default function Home() {
       <section className="relative overflow-hidden section-pad">
         <div className="mesh-navy absolute inset-0" />
         <div className="grid-texture absolute inset-0 opacity-15" />
+        <SolarBackground compact />
 
         <div className="section-container relative">
           <Reveal>
@@ -333,14 +341,15 @@ export default function Home() {
             />
           </Reveal>
 
-          <div className="mt-14 space-y-4">
+          <div className="relative mt-14 space-y-4">
+            <div className="pointer-events-none absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-gradient-to-b from-sun-400/70 via-navy-200 to-transparent sm:block" />
             {processSteps.map((step, i) => (
               <Reveal key={step.step} delay={i * 60}>
                 <GlowCard
                   ring={false}
                   className="flex flex-col gap-4 rounded-2xl border border-navy-900/8 bg-navy-50/40 p-5 transition-colors duration-300 hover:border-sun-400/30 hover:bg-white sm:flex-row sm:items-center sm:gap-6"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sm font-semibold text-sun-400">
+                  <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sm font-semibold text-sun-400 shadow-[0_0_0_6px_#fff]">
                     {step.step}
                   </div>
                   <div className="flex-1">
@@ -426,8 +435,9 @@ export default function Home() {
 
           <Reveal delay={200}>
             <div className="relative mt-10 overflow-hidden rounded-2xl bg-navy-900 px-8 py-10 sm:px-12 sm:py-12">
+              <SolarBackground compact />
               <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sun-500/20 blur-3xl" />
-              <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
                 <div className="max-w-xl">
                   <div className="flex items-center gap-3">
                     <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-sun-400">

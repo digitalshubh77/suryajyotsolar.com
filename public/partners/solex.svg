@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" fill="none">
+  <rect width="56" height="56" rx="10" fill="#F4A100"/>
+  <circle cx="28" cy="28" r="10" fill="#fff"/>
+  <g stroke="#fff" stroke-width="2.4" stroke-linecap="round">
+    <path d="M28 8v5"/>
+    <path d="M28 43v5"/>
+    <path d="M8 28h5"/>
+    <path d="M43 28h5"/>
+    <path d="M13.8 13.8l3.5 3.5"/>
+    <path d="M38.7 38.7l3.5 3.5"/>
+    <path d="M13.8 42.2l3.5-3.5"/>
+    <path d="M38.7 17.3l3.5-3.5"/>
+  </g>
+  <text x="70" y="35" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0B1220" letter-spacing="2">SOLEX</text>
+</svg>

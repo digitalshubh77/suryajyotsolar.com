@@ -1,11 +1,12 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { Button, PageHero, SectionHeading } from "@/components/ui";
+import { Button, PageCta, PageHero, SectionHeading } from "@/components/ui";
 import { ShieldIcon, serviceIconMap } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { GlowCard } from "@/components/GlowCard";
+import { SolarBackground } from "@/components/SolarBackground";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { services, warranties } from "@/lib/content";
+import { services, site, warranties } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our Services | Suryajyot Solar",
@@ -24,7 +25,7 @@ export default function ServicesPage() {
       />
 
       <section className="section-pad">
-        <div className="mx-auto max-w-7xl space-y-16 px-6 sm:px-8">
+        <div className="section-container space-y-16">
           {services.map((service, index) => {
             const Icon = serviceIconMap[service.icon];
             const reversed = index % 2 === 1;
@@ -35,8 +36,8 @@ export default function ServicesPage() {
                   reversed ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <GlowCard ring={false} className="relative rounded-lg">
-                  <div className="overflow-hidden rounded-lg">
+                <GlowCard ring={false} className="relative rounded-2xl">
+                  <div className="overflow-hidden rounded-2xl">
                     <Image
                       src={service.image}
                       alt={service.title}
@@ -45,7 +46,7 @@ export default function ServicesPage() {
                       className="h-[260px] w-full object-cover transition-transform duration-700 hover:scale-[1.03] sm:h-[340px]"
                     />
                   </div>
-                  <span className="absolute -top-3 -left-3 flex h-12 w-12 items-center justify-center rounded-md bg-navy-900 text-sun-400 shadow-lg">
+                  <span className="absolute -top-3 -left-3 flex h-12 w-12 items-center justify-center rounded-xl bg-navy-900 text-sun-400 shadow-lg">
                     <Icon className="h-6 w-6" />
                   </span>
                 </GlowCard>
@@ -59,7 +60,7 @@ export default function ServicesPage() {
                   <p className="mt-4 text-[15px] leading-relaxed text-navy-600">
                     {service.description}
                   </p>
-                  <Button href="/contact" variant="outline" className="mt-6">
+                  <Button href={site.whatsappHref} variant="outline" className="mt-6">
                     Enquire About This Service
                   </Button>
                 </div>
@@ -72,7 +73,8 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden section-pad">
         <div className="mesh-navy absolute inset-0" />
         <div className="grid-texture absolute inset-0 opacity-20" />
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
+        <SolarBackground compact />
+        <div className="section-container relative">
           <Reveal>
             <SectionHeading
               eyebrow="Warranty Coverage"
@@ -86,7 +88,7 @@ export default function ServicesPage() {
               <Reveal key={w.label} delay={i * 60}>
                 <GlowCard
                   dark
-                  className="rounded-lg border border-white/10 bg-white/[0.04] p-6 text-center"
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center"
                 >
                   <ShieldIcon className="mx-auto h-6 w-6 text-sun-400" />
                   <AnimatedCounter
@@ -105,6 +107,15 @@ export default function ServicesPage() {
             manufacturers and are subject to their standard terms and
             conditions.
           </p>
+        </div>
+      </section>
+
+      <section className="section-pad bg-white">
+        <div className="section-container">
+          <PageCta
+            title="Need help choosing the right system?"
+            description="Tell us your monthly bill and roof type. We will recommend the right capacity and share a clear quotation."
+          />
         </div>
       </section>
     </>

@@ -44,7 +44,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-5 rounded-lg border border-navy-900/8 bg-white p-6 shadow-[0_20px_50px_-28px_rgba(11,18,32,0.25)] sm:p-8"
+      className="space-y-5 rounded-2xl surface-card p-6 sm:p-8"
     >
       <div>
         <h3 className="text-xl font-semibold tracking-tight text-navy-900">
@@ -102,7 +102,7 @@ export function ContactForm() {
           {reasons.map((r, i) => (
             <label
               key={r}
-              className="flex cursor-pointer items-center justify-center rounded-md border border-navy-900/10 px-2 py-2.5 text-center text-xs font-medium text-navy-700 transition-colors has-[:checked]:border-sun-500 has-[:checked]:bg-sun-50 has-[:checked]:text-sun-800"
+              className="flex cursor-pointer items-center justify-center rounded-lg border border-navy-900/10 px-2 py-2.5 text-center text-xs font-medium text-navy-700 transition-colors has-[:checked]:border-sun-500 has-[:checked]:bg-sun-50 has-[:checked]:text-sun-800"
             >
               <input
                 type="radio"
@@ -131,7 +131,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center rounded-md bg-navy-900 px-6 py-3.5 text-[13px] font-semibold text-white transition-colors hover:bg-navy-800"
+        className="inline-flex w-full items-center justify-center rounded-md bg-sun-500 px-6 py-3.5 text-[13px] font-semibold text-white transition-colors hover:bg-sun-600"
       >
         Send via WhatsApp
       </button>

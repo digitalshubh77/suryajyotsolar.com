@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Button, PageHero, SectionHeading } from "@/components/ui";
+import { PageCta, PageHero, SectionHeading } from "@/components/ui";
 import { BankIcon, CheckIcon, ShieldIcon } from "@/components/icons";
 import { Reveal } from "@/components/Reveal";
 import { GlowCard } from "@/components/GlowCard";
@@ -28,10 +28,10 @@ export default function FinancePage() {
       />
 
       <section className="section-pad">
-        <div className="mx-auto grid max-w-7xl gap-5 px-6 sm:px-8 lg:grid-cols-2">
+        <div className="section-container grid gap-5 lg:grid-cols-2">
           <Reveal>
-            <GlowCard dark className="rounded-lg bg-navy-900 p-8 text-white">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-white/8 text-sun-400">
+            <GlowCard dark className="h-full rounded-2xl bg-navy-900 p-8 text-white">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/8 text-sun-400">
                 <BankIcon className="h-5 w-5" />
               </span>
               <h3 className="mt-6 text-xl font-semibold">Bank Finance</h3>
@@ -43,8 +43,8 @@ export default function FinancePage() {
             </GlowCard>
           </Reveal>
           <Reveal delay={80}>
-            <GlowCard className="rounded-lg border border-navy-900/8 bg-white p-8">
-              <span className="flex h-11 w-11 items-center justify-center rounded-md bg-navy-900 text-sun-400">
+            <GlowCard className="h-full rounded-2xl surface-card p-8">
+              <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-navy-900 text-sun-400">
                 <ShieldIcon className="h-5 w-5" />
               </span>
               <h3 className="mt-6 text-xl font-semibold text-navy-900">
@@ -61,7 +61,7 @@ export default function FinancePage() {
       </section>
 
       <section className="section-pad bg-white">
-        <div className="mx-auto max-w-3xl px-6 sm:px-8">
+        <div className="section-container max-w-3xl">
           <Reveal>
             <SectionHeading
               eyebrow="How We Help"
@@ -71,8 +71,10 @@ export default function FinancePage() {
           <div className="mt-10 space-y-3">
             {financePoints.map((point, i) => (
               <Reveal key={point} delay={i * 60}>
-                <GlowCard className="flex items-start gap-3 rounded-lg border border-navy-900/8 bg-white p-4">
-                  <CheckIcon className="mt-0.5 h-4.5 w-4.5 shrink-0 text-sun-600" />
+                <GlowCard className="flex items-start gap-3 rounded-xl surface-card p-4">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sun-50 text-sun-600">
+                    <CheckIcon className="h-3.5 w-3.5" />
+                  </span>
                   <p className="text-sm font-medium leading-relaxed text-navy-700">
                     {point}
                   </p>
@@ -82,7 +84,7 @@ export default function FinancePage() {
           </div>
 
           <Reveal delay={financePoints.length * 60}>
-            <div className="mt-8 rounded-lg border border-navy-900/8 bg-navy-50 p-5 text-sm leading-relaxed text-navy-600">
+            <div className="mt-8 rounded-2xl border border-navy-900/8 bg-navy-50 p-5 text-sm leading-relaxed text-navy-600">
               <strong className="font-semibold text-navy-900">Please note:</strong>{" "}
               Subsidy eligibility and amount are determined by MNRE / government
               guidelines and may change without notice. Final subsidy amount,
@@ -93,10 +95,12 @@ export default function FinancePage() {
             </div>
           </Reveal>
 
-          <div className="mt-10 flex justify-center">
-            <Button href="/contact" variant="primary">
-              Get Subsidy Guidance
-            </Button>
+          <div className="mt-10">
+            <PageCta
+              title="Need subsidy or EMI guidance?"
+              description="We will walk you through bank finance and government schemes that may apply to your rooftop system."
+              primaryLabel="Get Subsidy Guidance"
+            />
           </div>
         </div>
       </section>

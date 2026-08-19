@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 56" fill="none">
+  <rect width="56" height="56" rx="10" fill="#C8102E"/>
+  <path d="M18 14h12.5c7.6 0 12.5 4.8 12.5 12s-4.9 12-12.5 12H26v10h-8V14Zm8 6.6V32h4c3.6 0 5.8-2 5.8-5.4s-2.2-5.4-5.8-5.4H26Z" fill="#fff"/>
+  <text x="70" y="35" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#C8102E" letter-spacing="1.2">POLYCAB</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
+  <rect width="56" height="56" rx="10" fill="#E4572E"/>
+  <path d="M28 10 44 44H36.5L33.2 36H22.8L19.5 44H12L28 10Z" fill="#fff"/>
+  <path d="M24.4 32h7.2l-3.6-8.6L24.4 32Z" fill="#E4572E"/>
+  <text x="70" y="24" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#0B1220">ADANI</text>
+  <text x="70" y="42" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#E4572E" letter-spacing="2.6">SOLAR</text>
+</svg>

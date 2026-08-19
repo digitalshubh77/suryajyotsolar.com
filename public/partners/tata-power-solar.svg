@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none">
+  <rect width="56" height="56" rx="10" fill="#0B1220"/>
+  <circle cx="28" cy="22" r="8" fill="#C9963A"/>
+  <path d="M10 36h36l-6 10H16l-6-10Z" fill="#E8B84A"/>
+  <text x="70" y="24" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0B1220" letter-spacing="0.4">TATA POWER</text>
+  <text x="70" y="42" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#B8862A" letter-spacing="2.4">SOLAR</text>
+</svg>

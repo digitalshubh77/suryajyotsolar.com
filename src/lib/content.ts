@@ -124,29 +124,14 @@ export const panelBrands = [
 export const inverterBrands = ["Solex", "Waaree", "Deye", "Polycab"];
 export const batteryBrands = ["Tata", "Deye"];
 
-/**
- * Logos are only included where an official mark could be sourced from
- * Wikimedia Commons (public-domain-tagged, directly linkable). Brands
- * without a verified source fall back to a text wordmark in the UI —
- * intentionally not hotlinking scraped logo images from arbitrary sites.
- */
-export const partnerBrands: { name: string; logo?: string }[] = [
-  {
-    name: "Tata Power Solar",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tata_Power_Solar_logo.png",
-  },
-  {
-    name: "Adani Solar",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Adani_2012_logo.png",
-  },
-  { name: "Waaree Energies" },
-  { name: "Premier Energies" },
-  { name: "Solex" },
-  { name: "Deye" },
-  {
-    name: "Polycab",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/81/Polycab_India_logo.png",
-  },
+export const partnerBrands: { name: string; logo: string }[] = [
+  { name: "Tata Power Solar", logo: "/partners/tata-power-solar.svg" },
+  { name: "Adani Solar", logo: "/partners/adani-solar.svg" },
+  { name: "Waaree Energies", logo: "/partners/waaree.svg" },
+  { name: "Premier Energies", logo: "/partners/premier-energies.svg" },
+  { name: "Solex", logo: "/partners/solex.svg" },
+  { name: "Deye", logo: "/partners/deye.svg" },
+  { name: "Polycab", logo: "/partners/polycab.svg" },
 ];
 
 export const processSteps = [

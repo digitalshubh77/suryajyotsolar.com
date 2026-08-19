@@ -6,6 +6,8 @@ import type { ReactNode } from "react";
 import { ArrowRightIcon } from "./icons";
 import { WaveDivider } from "./WaveDivider";
 import { AnimatedCounter } from "./AnimatedCounter";
+import { SolarBackground } from "./SolarBackground";
+import { site } from "@/lib/content";
 
 type ButtonVariant = "primary" | "outline" | "dark";
 
@@ -132,14 +134,15 @@ export function PageHero({
   image: string;
 }) {
   return (
-    <section className="relative overflow-hidden pt-28 pb-20">
+    <section className="relative overflow-hidden pt-32 pb-24 sm:pt-36 sm:pb-28">
       <div className="mesh-navy absolute inset-0" />
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.18]"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.22]"
         style={{ backgroundImage: `url(${image})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-900/50 via-navy-900/75 to-navy-900" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-navy-900/78 to-navy-900" />
       <div className="grid-texture absolute inset-0 opacity-20" />
+      <SolarBackground compact />
 
       <motion.div
         initial="hidden"
@@ -147,7 +150,7 @@ export function PageHero({
         variants={{
           visible: { transition: { staggerChildren: 0.08 } },
         }}
-        className="relative mx-auto max-w-3xl px-6 text-center"
+        className="section-container relative max-w-3xl text-center"
       >
         <motion.div
           variants={{
@@ -157,7 +160,7 @@ export function PageHero({
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="flex justify-center"
         >
-          <Eyebrow light>{eyebrow}</Eyebrow>
+          <span className="hero-badge">{eyebrow}</span>
         </motion.div>
         <motion.h1
           variants={{
@@ -165,7 +168,7 @@ export function PageHero({
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-5 text-[32px] font-semibold tracking-tight text-white sm:text-5xl"
+          className="mt-6 text-[32px] font-semibold tracking-tight text-white sm:text-[46px] sm:leading-[1.12]"
         >
           {title}
         </motion.h1>
@@ -196,9 +199,54 @@ export function PageHero({
   );
 }
 
+export function PageCta({
+  eyebrow = "Get Started",
+  title,
+  description,
+  primaryLabel = "Book Free Site Visit",
+  primaryHref = site.whatsappHref,
+}: {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-2xl bg-navy-900 px-8 py-10 sm:px-12 sm:py-12">
+      <SolarBackground compact />
+      <div className="relative z-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-xl">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sun-400">
+            {eyebrow}
+          </p>
+          <h3 className="mt-3 text-2xl font-semibold text-white sm:text-[28px]">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-navy-300">
+            {description}
+          </p>
+        </div>
+        <div className="flex shrink-0 flex-col gap-3 sm:items-end">
+          <Button href={primaryHref} variant="primary">
+            {primaryLabel}
+          </Button>
+          <Button
+            href={site.phoneHref}
+            variant="outline"
+            className="!border-white/25 !bg-transparent !text-white hover:!bg-white hover:!text-navy-900"
+          >
+            Call {site.phone}
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function StatCard({ value, label }: { value: string; label: string }) {
   return (
-    <div className="px-4 py-5 text-center">
+    <div className="px-4 py-6 text-center">
       <AnimatedCounter
         value={value}
         className="block text-[28px] font-semibold text-sun-400 sm:text-[32px]"

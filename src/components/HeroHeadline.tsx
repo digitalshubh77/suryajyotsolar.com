@@ -27,7 +27,10 @@ export function HeroHeadline() {
       <motion.span variants={item} className="block">
         Power Your Life
       </motion.span>
-      <motion.span variants={item} className="block text-sun-400">
+      <motion.span
+        variants={item}
+        className="mt-4 block bg-[linear-gradient(110deg,#f5e8c8_0%,#c9963a_35%,#fff6d8_50%,#b8862a_75%,#e8b84a_100%)] bg-[length:200%_auto] bg-clip-text text-transparent animate-headline-shimmer"
+      >
         With the Sun
       </motion.span>
     </motion.h1>
