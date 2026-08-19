@@ -4,15 +4,15 @@ import { motion, type Variants } from "framer-motion";
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.04 } },
+  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -22,7 +22,7 @@ export function HeroHeadline() {
       initial="hidden"
       animate="visible"
       variants={container}
-      className="mt-5 text-[42px] font-semibold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-[62px]"
+      className="mt-6 max-w-xl text-[38px] font-semibold leading-[1.08] tracking-tight text-white sm:text-[46px] lg:text-[54px]"
     >
       <motion.span variants={item} className="block">
         Power Your Life

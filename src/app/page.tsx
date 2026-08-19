@@ -12,9 +12,9 @@ import { Marquee } from "@/components/Marquee";
 import { HeroHeadline } from "@/components/HeroHeadline";
 import { GlowCard } from "@/components/GlowCard";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
+import { WaveDivider } from "@/components/WaveDivider";
 import {
   galleryImages,
-  panelBrands,
   processSteps,
   services,
   site,
@@ -23,155 +23,183 @@ import {
   whyChooseUs,
 } from "@/lib/content";
 
+const heroHighlights = [
+  "Free site visit & quotation",
+  "Net metering support",
+  "Finance & subsidy guidance",
+];
+
 export default function Home() {
   return (
     <>
+      {/* HERO */}
       <section className="relative overflow-hidden">
         <div className="mesh-navy absolute inset-0" />
-        <div className="grid-texture absolute inset-0 opacity-25" />
+        <div className="grid-texture absolute inset-0 opacity-20" />
         <div className="noise-overlay" />
-        <div className="pointer-events-none absolute -left-24 top-10 h-80 w-80 rounded-full bg-sun-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-20 top-0 h-[420px] w-[420px] rounded-full bg-sun-500/15 blur-3xl" />
 
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-24 pt-16 sm:px-8 sm:pt-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:pb-32 lg:pt-24">
-          <Reveal>
-            <Eyebrow light>Kolhapur District Solar Partner</Eyebrow>
-            <HeroHeadline />
-            <p className="mt-6 max-w-xl text-[15px] leading-[1.8] text-navy-200 sm:text-base">
-              Complete rooftop solar for homes, businesses, and industries
-              across {site.serviceArea}. Site assessment, system design,
-              installation, and net metering — handled by one local team.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={site.whatsappHref} variant="primary">
-                Book a Free Site Visit
-              </Button>
-              <Button
-                href={site.phoneHref}
-                variant="outline"
-                className="!border-white/20 !bg-transparent !text-white hover:!border-white hover:!bg-white hover:!text-navy-900"
-              >
-                Call {site.phone}
-              </Button>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-white/10 pt-6 text-[12px] text-navy-300">
-              <span className="font-medium text-white">Trusted brands</span>
-              {panelBrands.map((brand) => (
-                <span key={brand} className="tracking-wide">
-                  {brand}
-                </span>
-              ))}
-            </div>
-          </Reveal>
+        <div className="section-container relative pb-28 pt-14 sm:pt-20 lg:pb-36 lg:pt-24">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <Reveal>
+              <span className="hero-badge">
+                <SunIcon className="h-3.5 w-3.5" />
+                Kolhapur District
+              </span>
+              <HeroHeadline />
+              <p className="mt-5 max-w-lg text-[15px] leading-[1.75] text-navy-200 sm:text-base">
+                End-to-end rooftop solar for homes, businesses, and industries.
+                One local team handles assessment, installation, and net
+                metering across {site.serviceArea}.
+              </p>
 
-          <Reveal delay={120} className="relative">
-            <div className="absolute -inset-3 rounded-2xl border border-sun-500/25" />
-            <div className="relative overflow-hidden rounded-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80"
-                alt="Rooftop solar panel installation under sunlight"
-                width={900}
-                height={1000}
-                priority
-                className="h-[400px] w-full object-cover sm:h-[500px]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-900/75 via-navy-900/10 to-transparent" />
-            </div>
+              <ul className="mt-6 space-y-2.5">
+                {heroHighlights.map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-navy-200">
+                    <CheckIcon className="h-4 w-4 shrink-0 text-sun-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-            <div className="absolute bottom-5 left-5 right-5 hidden grid-cols-2 gap-3 sm:grid">
-              <div className="rounded-xl border border-white/20 bg-white/95 p-4 backdrop-blur">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-sun-400">
-                    <SunIcon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
-                      Panel Warranty
-                    </p>
-                    <p className="text-sm font-semibold text-navy-900">
-                      30 Years Performance
-                    </p>
-                  </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button href={site.whatsappHref} variant="primary">
+                  Book a Free Site Visit
+                </Button>
+                <Button
+                  href={site.phoneHref}
+                  variant="outline"
+                  className="!border-white/25 !bg-white/5 !text-white hover:!border-white hover:!bg-white hover:!text-navy-900"
+                >
+                  Call {site.phone}
+                </Button>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100} className="relative">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.55)]">
+                <Image
+                  src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1400&q=80"
+                  alt="Rooftop solar panel installation under sunlight"
+                  width={900}
+                  height={1000}
+                  priority
+                  className="aspect-[4/5] w-full object-cover sm:aspect-[5/6]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent" />
+              </div>
+
+              <div className="absolute -bottom-5 left-4 right-4 grid grid-cols-2 gap-3 sm:-bottom-6 sm:left-6 sm:right-6">
+                <div className="surface-card rounded-xl p-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
+                    Panel Warranty
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-navy-900">
+                    30 Years Performance
+                  </p>
+                </div>
+                <div className="surface-card rounded-xl p-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
+                    Installation
+                  </p>
+                  <p className="mt-1 text-sm font-semibold text-navy-900">
+                    Completed in 5 Days
+                  </p>
                 </div>
               </div>
-              <div className="rounded-xl border border-white/20 bg-white/95 p-4 backdrop-blur">
-                <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-sun-400">
-                    <ShieldIcon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
-                      Typical Timeline
-                    </p>
-                    <p className="text-sm font-semibold text-navy-900">
-                      Installed in 5 Days
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
+
+        <WaveDivider className="absolute bottom-0 left-0 text-background" />
       </section>
 
-      <section className="relative z-10 -mt-10 px-6 sm:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_20px_50px_-24px_rgba(11,18,32,0.22)] sm:grid-cols-4">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`px-4 py-7 text-center ${
-                i < stats.length - 1 ? "sm:border-r sm:border-navy-900/8" : ""
-              } ${i % 2 === 0 ? "border-r border-navy-900/8 sm:border-r" : ""} ${
-                i < 2 ? "border-b border-navy-900/8 sm:border-b-0" : ""
-              }`}
-            >
-              <AnimatedCounter
-                value={s.value}
-                className="block text-[28px] font-semibold text-navy-900 sm:text-[32px]"
-              />
-              <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
-                {s.label}
-              </p>
-            </div>
-          ))}
+      {/* STATS */}
+      <section className="relative z-10 -mt-1 bg-background pb-4 pt-2">
+        <div className="section-container">
+          <div className="grid grid-cols-2 overflow-hidden rounded-2xl border border-navy-900/8 bg-white shadow-[0_20px_50px_-28px_rgba(11,18,32,0.2)] lg:grid-cols-4">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`px-5 py-8 text-center ${
+                  i < stats.length - 1 ? "lg:border-r lg:border-navy-900/8" : ""
+                } ${i % 2 === 0 ? "border-r border-navy-900/8 lg:border-r" : ""} ${
+                  i < 2 ? "border-b border-navy-900/8 lg:border-b-0" : ""
+                }`}
+              >
+                <AnimatedCounter
+                  value={s.value}
+                  className="block text-3xl font-semibold text-navy-900"
+                />
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
+                  {s.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <Marquee />
 
-      <section className="section-pad">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+      {/* SERVICES */}
+      <section className="section-pad bg-navy-50/60">
+        <div className="section-container">
           <Reveal>
             <SectionHeading
               eyebrow="What We Offer"
-              title="Complete solar solutions, start to finish"
-              description="Residential, commercial, and industrial installations with professional workmanship and reliable after-sales service."
+              title="Complete solar solutions for every need"
+              description="From residential rooftops to industrial installations — professional workmanship and reliable after-sales support."
             />
           </Reveal>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => {
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {services.slice(0, 3).map((service, i) => {
               const Icon = serviceIconMap[service.icon];
               return (
                 <Reveal key={service.slug} delay={i * 70}>
-                  <GlowCard className="group h-full overflow-hidden rounded-2xl border border-navy-900/8 bg-white">
-                    <div className="relative h-44 overflow-hidden">
+                  <GlowCard className="group h-full overflow-hidden rounded-2xl surface-card">
+                    <div className="relative h-48 overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        sizes="(min-width: 1024px) 33vw, 100vw"
+                        sizes="(min-width: 1280px) 33vw, 50vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 to-transparent" />
-                      <span className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-sun-400 backdrop-blur">
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/75 to-transparent" />
+                      <span className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/15 text-sun-400 backdrop-blur">
                         <Icon className="h-5 w-5" />
                       </span>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-[17px] font-semibold text-navy-900">
+                      <h3 className="text-lg font-semibold text-navy-900">
                         {service.title}
                       </h3>
-                      <p className="mt-2.5 text-sm leading-relaxed text-navy-500">
+                      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-navy-500">
+                        {service.description}
+                      </p>
+                    </div>
+                  </GlowCard>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            {services.slice(3).map((service, i) => {
+              const Icon = serviceIconMap[service.icon];
+              return (
+                <Reveal key={service.slug} delay={(i + 3) * 70}>
+                  <GlowCard className="flex h-full gap-5 rounded-2xl surface-card p-5 sm:items-start">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-navy-900 text-sun-400">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold text-navy-900">
+                        {service.title}
+                      </h3>
+                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-navy-500">
                         {service.description}
                       </p>
                     </div>
@@ -183,129 +211,160 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ABOUT */}
       <section className="section-pad bg-white">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 sm:px-8 lg:grid-cols-2 lg:gap-20">
-          <Reveal className="relative">
-            <div className="overflow-hidden rounded-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80"
-                alt="Solar panels installed on a commercial rooftop at sunset"
-                width={900}
-                height={700}
-                className="h-[380px] w-full object-cover sm:h-[460px]"
-              />
-            </div>
-            <div className="absolute -bottom-5 right-4 w-48 rounded-xl border border-navy-900/8 bg-white p-5 shadow-[0_16px_40px_-20px_rgba(11,18,32,0.25)] sm:right-6">
-              <AnimatedCounter
-                value={site.installations}
-                className="block text-3xl font-semibold text-sun-600"
-              />
-              <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
-                Installations
-              </p>
-            </div>
-          </Reveal>
+        <div className="section-container">
+          <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+            <Reveal className="relative order-2 lg:order-1">
+              <div className="overflow-hidden rounded-2xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=1200&q=80"
+                  alt="Solar panels on a commercial rooftop at sunset"
+                  width={900}
+                  height={700}
+                  className="aspect-[5/4] w-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-5 -right-2 w-44 rounded-xl border border-navy-900/8 bg-white p-5 shadow-[0_16px_40px_-20px_rgba(11,18,32,0.25)] sm:right-4">
+                <AnimatedCounter
+                  value={site.installations}
+                  className="block text-3xl font-semibold text-sun-600"
+                />
+                <p className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-navy-400">
+                  Installations Done
+                </p>
+              </div>
+            </Reveal>
 
-          <Reveal delay={120}>
-            <Eyebrow>Who We Are</Eyebrow>
-            <h2 className="mt-4 text-[28px] font-semibold tracking-tight text-navy-900 sm:text-[36px]">
-              Building a sustainable future, one rooftop at a time
-            </h2>
-            <p className="mt-5 text-[15px] leading-relaxed text-navy-600">
-              Founded in {site.yearStarted} by {site.founder}, {site.name}{" "}
-              was built to make clean, reliable solar energy accessible to
-              every home and business in {site.serviceArea}. In a short span,
-              we have completed {site.installations} installations, helping
-              customers reduce electricity bills and contribute to a greener
-              future.
-            </p>
-            <blockquote className="mt-7 border-l-2 border-sun-500 pl-5 text-[15px] leading-relaxed text-navy-700">
-              To become a trusted solar energy provider by promoting clean
-              energy and building a sustainable future.
-            </blockquote>
-          </Reveal>
+            <Reveal delay={100} className="order-1 lg:order-2">
+              <Eyebrow>Who We Are</Eyebrow>
+              <h2 className="mt-4 text-[30px] font-semibold leading-tight tracking-tight text-navy-900 sm:text-[38px]">
+                Trusted solar partner across Kolhapur District
+              </h2>
+              <p className="mt-5 text-[15px] leading-relaxed text-navy-600">
+                Founded in {site.yearStarted} by {site.founder}, {site.name}{" "}
+                makes clean, reliable solar energy accessible to every home and
+                business in {site.serviceArea}. We have completed{" "}
+                {site.installations} installations with transparent pricing and
+                quality workmanship.
+              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {[
+                  { label: "Experience", value: `${site.experienceYears} Years` },
+                  { label: "Service Area", value: site.serviceArea },
+                  { label: "Founded", value: String(site.yearStarted) },
+                  { label: "Founder", value: site.founder },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-xl border border-navy-900/8 bg-navy-50/50 px-4 py-3"
+                  >
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-navy-400">
+                      {item.label}
+                    </p>
+                    <p className="mt-0.5 text-sm font-semibold text-navy-900">
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
+      {/* WHY CHOOSE US */}
       <section className="relative overflow-hidden section-pad">
         <div className="mesh-navy absolute inset-0" />
-        <div className="grid-texture absolute inset-0 opacity-20" />
+        <div className="grid-texture absolute inset-0 opacity-15" />
 
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
+        <div className="section-container relative">
           <Reveal>
             <SectionHeading
               eyebrow="Why Choose Us"
-              title="A local team you can rely on"
+              title="Why customers trust Suryajyot Solar"
               light
-              description="From certified installation to after-sales support, here is what sets Suryajyot Solar apart."
+              description="Local expertise, certified installation, and support you can count on after handover."
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item, i) => (
-              <Reveal key={item} delay={i * 50}>
-                <GlowCard
-                  dark
-                  className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-5"
-                >
-                  <CheckIcon className="mt-0.5 h-4.5 w-4.5 shrink-0 text-sun-400" />
+              <Reveal key={item} delay={i * 45}>
+                <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-sun-500/20 text-sun-400">
+                    <CheckIcon className="h-4 w-4" />
+                  </span>
                   <p className="text-sm leading-relaxed text-navy-200">{item}</p>
-                </GlowCard>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      {/* PROCESS */}
       <section className="section-pad bg-white">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+        <div className="section-container">
           <Reveal>
             <SectionHeading
               eyebrow="How It Works"
-              title="A simple, transparent 5-step process"
-              description="From your first enquiry to a fully functioning solar system."
+              title="Your solar journey in 5 clear steps"
+              description="A simple, transparent process from your first enquiry to a working system."
             />
           </Reveal>
 
-          <div className="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
-            <div className="absolute top-5 left-[8%] hidden h-px w-[84%] bg-navy-900/10 lg:block" />
+          <div className="mt-14 space-y-4">
             {processSteps.map((step, i) => (
-              <Reveal key={step.step} delay={i * 70} className="relative text-center">
-                <div className="relative mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-navy-900 text-[12px] font-semibold text-sun-400 ring-4 ring-white">
-                  {step.step}
+              <Reveal key={step.step} delay={i * 60}>
+                <div className="flex flex-col gap-4 rounded-2xl border border-navy-900/8 bg-navy-50/40 p-5 sm:flex-row sm:items-center sm:gap-6">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-sm font-semibold text-sun-400">
+                    {step.step}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-base font-semibold text-navy-900">
+                      {step.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-navy-500">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="mt-5 text-sm font-semibold text-navy-900">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-navy-500">
-                  {step.description}
-                </p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-pad">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
+      {/* GALLERY */}
+      <section className="section-pad bg-navy-50/60">
+        <div className="section-container">
           <Reveal>
             <SectionHeading
-              eyebrow="Recent Work"
-              title="Installations across Kolhapur District"
+              eyebrow="Our Work"
+              title="Projects across Kolhapur District"
+              description="Residential, commercial, and industrial installations delivered by our local team."
             />
           </Reveal>
+
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {galleryImages.slice(0, 6).map((img, i) => (
-              <Reveal key={img.src} delay={(i % 3) * 70}>
-                <div className="group relative overflow-hidden rounded-2xl">
+              <Reveal
+                key={img.src}
+                delay={(i % 3) * 60}
+                className={i === 0 ? "sm:col-span-2 lg:col-span-2 lg:row-span-2" : ""}
+              >
+                <div className="group relative h-full min-h-[220px] overflow-hidden rounded-2xl">
                   <Image
                     src={img.src}
                     alt={img.alt}
                     width={800}
-                    height={560}
-                    className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    height={i === 0 ? 640 : 480}
+                    className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                      i === 0 ? "h-full min-h-[280px] lg:min-h-[460px]" : "h-56"
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/85 via-navy-900/15 to-transparent" />
                   <p className="absolute bottom-4 left-4 right-4 text-sm font-medium text-white">
                     {img.caption}
                   </p>
@@ -316,44 +375,67 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pb-20 sm:pb-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* WARRANTY + CTA */}
+      <section className="section-pad bg-white">
+        <div className="section-container">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Warranty & Finance"
+              title="Backed by strong warranties and finance support"
+            />
+          </Reveal>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {warranties.map((w, i) => (
-              <Reveal key={w.label} delay={i * 60}>
-                <GlowCard className="rounded-2xl border border-navy-900/8 bg-white p-6 text-center">
+              <Reveal key={w.label} delay={i * 50}>
+                <div className="rounded-2xl border border-navy-900/8 bg-white p-6 text-center shadow-[0_8px_24px_-16px_rgba(11,18,32,0.12)]">
                   <ShieldIcon className="mx-auto h-6 w-6 text-sun-600" />
                   <AnimatedCounter
                     value={w.value}
                     className="mt-3 block text-xl font-semibold text-navy-900"
                   />
-                  <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-navy-400">
+                  <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.12em] text-navy-400">
                     {w.label}
                   </p>
-                </GlowCard>
+                </div>
               </Reveal>
             ))}
           </div>
 
-          <Reveal delay={warranties.length * 60}>
-            <div className="mt-6 flex flex-col items-start justify-between gap-5 rounded-2xl bg-navy-900 p-8 text-white sm:flex-row sm:items-center">
-              <div className="flex items-start gap-4 sm:items-center">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/8 text-sun-400">
-                  <BankIcon className="h-5 w-5" />
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold">
-                    Nationalised bank finance available
+          <Reveal delay={200}>
+            <div className="relative mt-10 overflow-hidden rounded-2xl bg-navy-900 px-8 py-10 sm:px-12 sm:py-12">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-sun-500/20 blur-3xl" />
+              <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="max-w-xl">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-sun-400">
+                      <BankIcon className="h-5 w-5" />
+                    </span>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sun-400">
+                      Finance Available
+                    </p>
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold text-white sm:text-[28px]">
+                    Ready to start saving with solar?
                   </h3>
-                  <p className="mt-1 text-sm text-navy-300">
-                    Easy EMI options and subsidy guidance to make your switch
-                    to solar affordable.
+                  <p className="mt-2 text-sm leading-relaxed text-navy-300">
+                    Get a free site visit, quotation, and guidance on bank finance
+                    and government subsidy schemes.
                   </p>
                 </div>
+                <div className="flex shrink-0 flex-col gap-3 sm:items-end">
+                  <Button href={site.whatsappHref} variant="primary">
+                    Book Free Site Visit
+                  </Button>
+                  <Button
+                    href={site.phoneHref}
+                    variant="outline"
+                    className="!border-white/25 !bg-transparent !text-white hover:!bg-white hover:!text-navy-900"
+                  >
+                    Call {site.phone}
+                  </Button>
+                </div>
               </div>
-              <Button href={site.whatsappHref} variant="primary" className="shrink-0">
-                Ask About Finance
-              </Button>
             </div>
           </Reveal>
         </div>
