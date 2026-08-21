@@ -26,10 +26,10 @@ export function Button({
     "group inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-[13px] font-semibold tracking-[0.02em] transition-all duration-200";
   const variants: Record<ButtonVariant, string> = {
     primary:
-      "bg-sun-500 text-white hover:bg-sun-600",
+      "bg-sun-500 text-white hover:bg-sun-600 shadow-[0_8px_20px_-10px_rgba(0,168,48,0.55)]",
     outline:
-      "border border-navy-900/15 bg-white text-navy-800 hover:border-navy-900 hover:bg-navy-900 hover:text-white",
-    dark: "bg-navy-900 text-white hover:bg-navy-800",
+      "border border-navy-900/15 bg-white text-navy-800 hover:border-navy-700 hover:bg-navy-700 hover:text-white",
+    dark: "bg-navy-700 text-white hover:bg-navy-800",
   };
 
   const classes = `${base} ${variants[variant]} ${className}`;

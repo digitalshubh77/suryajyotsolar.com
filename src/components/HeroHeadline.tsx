@@ -1,38 +1,45 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { site } from "@/lib/content";
 
 const container: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 export function HeroHeadline() {
   return (
-    <motion.h1
+    <motion.div
       initial="hidden"
       animate="visible"
       variants={container}
-      className="mt-4 max-w-xl text-[32px] font-semibold leading-[1.1] tracking-tight text-white sm:text-[40px] lg:text-[46px]"
+      className="mt-6 w-full text-left"
     >
-      <motion.span variants={item} className="block">
-        Power Your Life
-      </motion.span>
-      <motion.span
+      <motion.p
         variants={item}
-        className="mt-4 block bg-[linear-gradient(110deg,#f5e8c8_0%,#c9963a_35%,#fff6d8_50%,#b8862a_75%,#e8b84a_100%)] bg-[length:200%_auto] bg-clip-text text-transparent animate-headline-shimmer"
+        className="text-left font-display text-[13px] font-semibold uppercase tracking-[0.28em] text-sun-400 sm:text-sm"
       >
-        With the Sun
-      </motion.span>
-    </motion.h1>
+        {site.name}
+      </motion.p>
+      <motion.h1
+        variants={item}
+        className="mt-3 max-w-3xl text-left text-[36px] font-semibold leading-[1.05] tracking-tight text-white sm:text-[48px] lg:text-[56px]"
+      >
+        <span className="block text-left">Power Your Life</span>
+        <span className="mt-1 block text-left bg-[linear-gradient(110deg,#fcfc00_0%,#fca818_35%,#fff9b0_50%,#00a830_78%,#0c4878_100%)] bg-[length:200%_auto] bg-clip-text text-transparent animate-headline-shimmer">
+          With the Sun
+        </span>
+      </motion.h1>
+    </motion.div>
   );
 }

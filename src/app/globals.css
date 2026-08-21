@@ -1,30 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6f8;
-  --foreground: #101828;
+  --background: #f3f7fb;
+  --foreground: #062538;
 
-  --color-sun-50: #fbf6ea;
-  --color-sun-100: #f5e8c8;
-  --color-sun-200: #e9d09a;
-  --color-sun-300: #d4b06a;
-  --color-sun-400: #c9963a;
-  --color-sun-500: #b8862a;
-  --color-sun-600: #9a6e20;
-  --color-sun-700: #7a5618;
-  --color-sun-800: #5c4014;
-  --color-sun-900: #3d2b0e;
+  /* Logo green bar — primary brand / CTAs (sun-* tokens) */
+  --color-sun-50: #e9f9ef;
+  --color-sun-100: #c6f2d6;
+  --color-sun-200: #8ee6ae;
+  --color-sun-300: #4ad47c;
+  --color-sun-400: #14bc4f;
+  --color-sun-500: #00a830;
+  --color-sun-600: #008c28;
+  --color-sun-700: #006e20;
+  --color-sun-800: #005018;
+  --color-sun-900: #003510;
 
-  --color-navy-50: #f3f5f8;
-  --color-navy-100: #e4e8ef;
-  --color-navy-200: #c5cedc;
-  --color-navy-300: #8b9ab3;
-  --color-navy-400: #5c6e8c;
-  --color-navy-500: #3d4f6d;
-  --color-navy-600: #2a3a54;
-  --color-navy-700: #1c2a42;
-  --color-navy-800: #131d30;
-  --color-navy-900: #0b1220;
+  /* Logo solar-panel blue — structure / dark UI (navy-* tokens) */
+  --color-navy-50: #f0f6fb;
+  --color-navy-100: #d9e8f4;
+  --color-navy-200: #b0cfe6;
+  --color-navy-300: #78a9cd;
+  --color-navy-400: #4584b3;
+  --color-navy-500: #216592;
+  --color-navy-600: #0f5488;
+  --color-navy-700: #0c4878;
+  --color-navy-800: #09385c;
+  --color-navy-900: #062538;
+
+  /* Logo sun warmth — used in hero atmosphere */
+  --color-flare-yellow: #fcfc00;
+  --color-flare-orange: #fca818;
+  --color-flare-red: #e44848;
 }
 
 @theme inline {
@@ -56,9 +63,9 @@
   --color-navy-800: var(--color-navy-800);
   --color-navy-900: var(--color-navy-900);
 
-  --shadow-card: 0 1px 2px rgba(11, 18, 32, 0.04), 0 8px 24px -12px rgba(11, 18, 32, 0.08);
-  --shadow-card-hover: 0 1px 2px rgba(11, 18, 32, 0.05), 0 16px 32px -16px rgba(11, 18, 32, 0.16);
-  --shadow-elevated: 0 24px 48px -20px rgba(11, 18, 32, 0.22);
+  --shadow-card: 0 1px 2px rgba(6, 37, 56, 0.04), 0 8px 24px -12px rgba(12, 72, 120, 0.1);
+  --shadow-card-hover: 0 1px 2px rgba(6, 37, 56, 0.05), 0 16px 32px -16px rgba(12, 72, 120, 0.18);
+  --shadow-elevated: 0 24px 48px -20px rgba(6, 37, 56, 0.24);
 }
 
 html {
@@ -107,9 +114,9 @@ h4 {
 .sun-glow {
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(200, 150, 58, 0.28),
-    rgba(184, 134, 42, 0.1) 45%,
-    rgba(184, 134, 42, 0) 70%
+    rgba(252, 168, 24, 0.32),
+    rgba(0, 168, 48, 0.12) 45%,
+    rgba(0, 168, 48, 0) 70%
   );
   filter: blur(28px);
 }
@@ -122,9 +129,9 @@ h4 {
 .mesh-navy {
   background-color: var(--color-navy-900);
   background-image:
-    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(184, 134, 42, 0.14), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(255, 255, 255, 0.04), transparent 50%),
-    linear-gradient(180deg, #101828 0%, #0b1220 100%);
+    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(0, 168, 48, 0.18), transparent 55%),
+    radial-gradient(ellipse 55% 45% at 100% 0%, rgba(252, 168, 24, 0.16), transparent 50%),
+    linear-gradient(180deg, #0c4878 0%, #062538 55%, #041828 100%);
 }
 
 .hero-grid-drift {
@@ -147,7 +154,7 @@ h4 {
 }
 
 .hero-wash {
-  background: linear-gradient(to top, rgba(184, 134, 42, 0.12), transparent 70%);
+  background: linear-gradient(to top, rgba(0, 168, 48, 0.14), transparent 70%);
 }
 
 .hero-orb {
@@ -156,17 +163,17 @@ h4 {
 }
 
 .hero-orb-gold {
-  background: rgba(184, 134, 42, 0.22);
+  background: rgba(252, 168, 24, 0.28);
   animation: aurora 16s ease-in-out infinite;
 }
 
 .hero-orb-cool {
-  background: rgba(92, 110, 140, 0.22);
+  background: rgba(12, 72, 120, 0.35);
   animation: aurora-alt 18s ease-in-out infinite;
 }
 
 .hero-orb-mid {
-  background: rgba(201, 150, 58, 0.1);
+  background: rgba(0, 168, 48, 0.14);
   animation: aurora 22s ease-in-out infinite reverse;
 }
 
@@ -186,17 +193,17 @@ h4 {
 
 .hero-sun-halo {
   inset: 8%;
-  background: radial-gradient(circle, rgba(255, 210, 120, 0.45) 0%, transparent 68%);
+  background: radial-gradient(circle, rgba(252, 252, 0, 0.45) 0%, rgba(252, 168, 24, 0.25) 40%, transparent 68%);
   animation: sun-breathe 6s ease-in-out infinite;
 }
 
 .hero-sun-rays {
   background: repeating-conic-gradient(
     from 0deg,
-    rgba(255, 220, 150, 0.28) 0deg,
+    rgba(252, 252, 0, 0.32) 0deg,
     transparent 7deg,
     transparent 13deg,
-    rgba(255, 220, 150, 0.12) 17deg,
+    rgba(252, 168, 24, 0.18) 17deg,
     transparent 22deg
   );
   mask-image: radial-gradient(closest-side, transparent 26%, rgba(0, 0, 0, 0.9) 44%, transparent 74%);
@@ -211,14 +218,14 @@ h4 {
 
 .hero-sun-core {
   inset: 32%;
-  background: radial-gradient(circle at 35% 32%, #fff6d8, #e8b84a 45%, #b8862a 80%);
+  background: radial-gradient(circle at 35% 32%, #fff9b0, #fca818 42%, #e44848 82%);
   filter: blur(1px);
-  box-shadow: 0 0 80px 18px rgba(212, 176, 106, 0.35);
+  box-shadow: 0 0 80px 18px rgba(252, 168, 24, 0.4);
 }
 
 .hero-sun-disc {
   inset: 38%;
-  background: radial-gradient(circle at 32% 30%, #fff, #f5e8c8 28%, #c9963a 70%, #9a6e20);
+  background: radial-gradient(circle at 32% 30%, #fff, #fcfc00 28%, #fca818 65%, #e44848);
   animation: sun-breathe 7.5s ease-in-out infinite;
 }
 
@@ -226,10 +233,10 @@ h4 {
   background: linear-gradient(
     118deg,
     transparent 16%,
-    rgba(255, 214, 140, 0.08) 30%,
+    rgba(252, 252, 0, 0.1) 30%,
     transparent 36%,
     transparent 44%,
-    rgba(255, 214, 140, 0.06) 50%,
+    rgba(252, 168, 24, 0.08) 50%,
     transparent 60%
   );
   animation: shaft-shift 12s ease-in-out infinite;
@@ -252,8 +259,8 @@ h4 {
   width: 3px;
   height: 3px;
   border-radius: 9999px;
-  background: rgba(245, 232, 200, 0.85);
-  box-shadow: 0 0 10px 2px rgba(212, 176, 106, 0.45);
+  background: rgba(252, 252, 0, 0.9);
+  box-shadow: 0 0 10px 2px rgba(252, 168, 24, 0.5);
   animation: mote-rise 11s ease-out infinite;
 }
 
@@ -286,7 +293,7 @@ h4 {
 }
 
 .hero-orbit {
-  border: 1px solid rgba(212, 176, 106, 0.18);
+  border: 1px solid rgba(0, 168, 48, 0.25);
   animation: orbit-spin 22s linear infinite;
 }
 
@@ -297,8 +304,8 @@ h4 {
   width: 7px;
   height: 7px;
   border-radius: 9999px;
-  background: #e8b84a;
-  box-shadow: 0 0 12px 2px rgba(232, 184, 74, 0.7);
+  background: #fca818;
+  box-shadow: 0 0 12px 2px rgba(252, 168, 24, 0.75);
 }
 
 .hero-orbit::before {
@@ -311,7 +318,7 @@ h4 {
   right: 18%;
   width: 5px;
   height: 5px;
-  background: #f5e8c8;
+  background: #fcfc00;
 }
 
 @keyframes grid-drift {
@@ -449,7 +456,7 @@ h4 {
 }
 
 .surface-card {
-  border: 1px solid rgba(11, 18, 32, 0.08);
+  border: 1px solid rgba(12, 72, 120, 0.1);
   background: #fff;
   box-shadow: var(--shadow-card);
 }
@@ -606,11 +613,11 @@ h4 {
 .aura-ring {
   background: conic-gradient(
     from 0deg,
-    rgba(212, 176, 106, 0.55),
-    rgba(184, 134, 42, 0.05) 30%,
+    rgba(252, 168, 24, 0.55),
+    rgba(0, 168, 48, 0.08) 30%,
     transparent 50%,
-    rgba(212, 176, 106, 0.4) 80%,
-    rgba(212, 176, 106, 0.55)
+    rgba(12, 72, 120, 0.35) 80%,
+    rgba(252, 168, 24, 0.55)
   );
   filter: blur(40px);
 }
@@ -628,10 +635,10 @@ h4 {
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(184, 134, 42, 0.45),
-    rgba(184, 134, 42, 0) 40%,
-    rgba(184, 134, 42, 0) 60%,
-    rgba(212, 176, 106, 0.3)
+    rgba(0, 168, 48, 0.5),
+    rgba(0, 168, 48, 0) 40%,
+    rgba(12, 72, 120, 0) 60%,
+    rgba(252, 168, 24, 0.35)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -658,7 +665,7 @@ h4 {
   z-index: -1;
   background: radial-gradient(
     380px circle at var(--x, 50%) var(--y, 50%),
-    rgba(184, 134, 42, 0.08),
+    rgba(0, 168, 48, 0.1),
     transparent 65%
   );
   opacity: 0;
@@ -673,7 +680,7 @@ h4 {
 .spotlight-dark::after {
   background: radial-gradient(
     380px circle at var(--x, 50%) var(--y, 50%),
-    rgba(212, 176, 106, 0.1),
+    rgba(252, 168, 24, 0.12),
     transparent 65%
   );
 }
@@ -681,7 +688,7 @@ h4 {
 .input-field {
   width: 100%;
   border-radius: 0.375rem;
-  border: 1px solid rgba(11, 18, 32, 0.1);
+  border: 1px solid rgba(12, 72, 120, 0.12);
   background: #fff;
   padding: 0.75rem 0.9rem;
   font-size: 0.875rem;
@@ -694,7 +701,7 @@ h4 {
 
 .input-field:focus {
   border-color: var(--color-sun-500);
-  box-shadow: 0 0 0 3px rgba(184, 134, 42, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 168, 48, 0.15);
 }
 
 .input-field::placeholder {

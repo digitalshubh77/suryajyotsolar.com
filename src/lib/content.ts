@@ -47,7 +47,7 @@ export const navLinks = [
 
 export const stats = [
   { value: "50+", label: "Installations Completed" },
-  { value: "3", label: "Years of Experience" },
+  { value: "3+", label: "Years of Experience" },
   { value: "30", label: "Yr Panel Warranty" },
   { value: "5", label: "Day Installation" },
 ];
