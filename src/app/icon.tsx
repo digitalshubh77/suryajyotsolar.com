@@ -3,6 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
+/** Browser tab favicon — simplified sun + panels for clarity at 32px. */
 export default function Icon() {
   return new ImageResponse(
     (
@@ -15,22 +16,23 @@ export default function Icon() {
           justifyContent: "center",
           background: "#0B1220",
           borderRadius: 8,
+          border: "1.5px solid #C9963A",
         }}
       >
-        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
-          <g stroke="#E8B84A" strokeWidth="3" strokeLinecap="round">
-            <path d="M32 8.2v5.2" />
-            <path d="M46.3 14.7 42.6 18.3" />
-            <path d="M51.8 28h-5.2" />
-            <path d="M17.7 14.7 21.4 18.3" />
-            <path d="M12.2 28h5.2" />
+        <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+          <g stroke="#E8B84A" strokeWidth="3.5" strokeLinecap="round">
+            <path d="M32 6v7" />
+            <path d="M48 14 43 19" />
+            <path d="M54 30h-7" />
+            <path d="M16 14 21 19" />
+            <path d="M10 30h7" />
           </g>
-          <circle cx="32" cy="27" r="8.5" fill="#E8B84A" />
-          <path d="M12 42 32 36l20 6v5L32 41 12 47V42Z" fill="#E9D09A" />
-          <path d="M12 49 32 43l20 6v5L32 48 12 54V49Z" fill="#C9963A" />
+          <circle cx="32" cy="28" r="9.5" fill="#E8B84A" />
+          <path d="M11 41.5 32 35l21 6.5v5.5L32 41 11 47.5V41.5Z" fill="#F0D9A0" />
+          <path d="M11 49 32 42.5l21 6.5v5L32 48 11 54.5V49Z" fill="#C9963A" />
         </svg>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

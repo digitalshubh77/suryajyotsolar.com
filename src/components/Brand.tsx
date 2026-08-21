@@ -1,37 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/content";
-import { LogoMark } from "./LogoMark";
+
+const sizes = {
+  nav: {
+    width: 200,
+    height: 120,
+    className: "h-[52px] w-auto max-w-[160px] object-contain sm:h-[58px] sm:max-w-[190px]",
+  },
+  footer: {
+    width: 280,
+    height: 168,
+    className: "h-[88px] w-auto max-w-[220px] object-contain sm:h-[104px] sm:max-w-[260px]",
+  },
+} as const;
 
 export function Brand({
   variant = "light",
+  size = "nav",
   showTagline = true,
 }: {
   variant?: "light" | "dark";
+  size?: "nav" | "footer";
   showTagline?: boolean;
 }) {
-  const dark = variant === "dark";
+  const dims = sizes[size];
 
   return (
-    <Link href="/" className="group flex min-w-0 items-center gap-2.5">
-      <LogoMark className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
-      <span className="min-w-0 leading-tight">
-        <span
-          className={`block truncate font-display text-[14px] font-semibold tracking-tight sm:text-[15px] ${
-            dark ? "text-white" : "text-navy-900"
-          }`}
-        >
-          {site.name}
-        </span>
-        {showTagline && (
-          <span
-            className={`hidden truncate text-[10px] font-medium uppercase tracking-[0.16em] sm:block ${
-              dark ? "text-navy-300" : "text-navy-400"
-            }`}
-          >
-            {site.tagline}
-          </span>
-        )}
-      </span>
+    <Link
+      href="/"
+      className="group flex min-w-0 shrink-0 items-center"
+      aria-label={site.name}
+    >
+      <Image
+        src="/logo.png"
+        alt={site.name}
+        width={dims.width}
+        height={dims.height}
+        priority={size === "nav"}
+        className={`${dims.className} ${
+          variant === "dark" ? "brightness-110" : ""
+        }`}
+      />
+      {showTagline ? <span className="sr-only">{site.tagline}</span> : null}
     </Link>
   );
 }

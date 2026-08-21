@@ -107,7 +107,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-14 sm:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-8 lg:gap-y-0">
           <div className="sm:col-span-2 lg:col-span-4">
-            <Brand variant="dark" />
+            <Brand variant="dark" size="footer" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-navy-300">
               Rooftop solar for homes, businesses, and industries across{" "}
               {site.serviceArea} — from site visit to net metering.

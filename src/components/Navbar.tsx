@@ -140,12 +140,12 @@ export function Navbar() {
             : "border-navy-900/6"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-6 sm:px-8">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center gap-4 px-6 sm:h-20 sm:px-8">
           <div className="shrink-0">
-            <Brand />
+            <Brand size="nav" />
           </div>
 
-          <nav className="hidden h-16 flex-1 items-center justify-center lg:flex">
+          <nav className="hidden h-full flex-1 items-center justify-center lg:flex">
             {primary.map((link) => {
               const active = isActive(pathname, link.href);
               const enabled = canNavigate(link.href);
@@ -153,7 +153,7 @@ export function Navbar() {
                 <NavItem
                   key={link.href}
                   href={link.href}
-                  className={`relative flex h-16 items-center px-2.5 text-[13px] font-medium whitespace-nowrap xl:px-3.5 ${
+                  className={`relative flex h-full items-center px-2.5 text-[13px] font-medium whitespace-nowrap xl:px-3.5 ${
                     active && enabled
                       ? "text-navy-900"
                       : enabled
@@ -174,7 +174,7 @@ export function Navbar() {
             })}
 
             <div
-              className="relative flex h-16"
+              className="relative flex h-full"
               onMouseEnter={() => setMoreOpen(true)}
               onMouseLeave={() => setMoreOpen(false)}
             >

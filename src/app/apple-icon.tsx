@@ -3,6 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
+/** Apple touch icon — full brand mark at high resolution. */
 export default function AppleIcon() {
   return new ImageResponse(
     (
@@ -15,39 +16,27 @@ export default function AppleIcon() {
           justifyContent: "center",
           background: "#0B1220",
           borderRadius: 40,
+          border: "4px solid #C9963A",
         }}
       >
-        <svg
-          width="148"
-          height="148"
-          viewBox="0 0 64 64"
-          fill="none"
-        >
-          <g stroke="#E8B84A" strokeWidth="2.4" strokeLinecap="round">
-            <path d="M32 8.2v4.8" />
-            <path d="M46.3 14.7 42.9 18" />
-            <path d="M51.8 28h-4.8" />
-            <path d="M46.3 41.3 42.9 38" />
-            <path d="M17.7 14.7 21.1 18" />
-            <path d="M12.2 28h4.8" />
-            <path d="M17.7 41.3 21.1 38" />
+        <svg width="140" height="140" viewBox="0 0 64 64" fill="none">
+          <g stroke="#E8B84A" strokeWidth="2.8" strokeLinecap="round">
+            <path d="M32 7v6" />
+            <path d="M47 14.5 42.8 18.7" />
+            <path d="M53 30h-6" />
+            <path d="M17 14.5 21.2 18.7" />
+            <path d="M11 30h6" />
+            <path d="M47 45.5 42.8 41.3" />
+            <path d="M17 45.5 21.2 41.3" />
           </g>
-          <circle cx="32" cy="28" r="8.2" fill="#E8B84A" />
-          <path
-            d="M13 42.5 32 37l19 5.5v4.2L32 41.3 13 46.7V42.5Z"
-            fill="#E9D09A"
-          />
-          <path
-            d="M13 48.4 32 42.8l19 5.6v4.1L32 47.1 13 52.5V48.4Z"
-            fill="#C9963A"
-          />
-          <path
-            d="M13 54.2 32 48.6l19 5.6V58L32 52.9 13 58v-3.8Z"
-            fill="#B8862A"
-          />
+          <circle cx="32" cy="28" r="9" fill="#E8B84A" />
+          <circle cx="29.2" cy="25.4" r="2.6" fill="#FFF3C9" opacity="0.65" />
+          <path d="M12 41.5 32 35.5l20 6v5.2L32 40.7 12 46.7V41.5Z" fill="#F0D9A0" />
+          <path d="M12 48.2 32 42.2l20 6v5L32 47.2 12 53.2v-5Z" fill="#C9963A" />
+          <path d="M12 54.5 32 48.5l20 6V58L32 52.5 12 58.5v-4Z" fill="#B8862A" />
         </svg>
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

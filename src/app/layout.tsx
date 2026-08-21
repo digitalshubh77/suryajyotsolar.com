@@ -31,11 +31,18 @@ export const metadata: Metadata = {
   applicationName: "Suryajyot Solar",
   icons: {
     icon: [
-      { url: "/logo-mark.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { url: "/icon", type: "image/png", sizes: "32x32" },
     ],
-    apple: [{ url: "/apple-icon", sizes: "180x180" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon", sizes: "180x180" },
+    ],
   },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
