@@ -23,7 +23,7 @@ export function SolarBackground({
       <div className="hero-stars absolute inset-0" />
       <div className="hero-wash absolute inset-x-0 bottom-0 h-1/2" />
 
-      <div className="hero-orb hero-orb-gold absolute -left-24 top-1/4 h-[420px] w-[420px]" />
+      <div className="hero-orb hero-orb-gold absolute -left-24 top-1/4 hidden h-[420px] w-[420px] lg:block" />
       <div className="hero-orb hero-orb-cool absolute -bottom-16 right-1/4 h-[300px] w-[300px]" />
       <div className="hero-orb hero-orb-mid absolute left-1/3 top-0 h-[220px] w-[220px]" />
 
@@ -31,7 +31,7 @@ export function SolarBackground({
         className={`hero-sun absolute ${
           compact
             ? "-right-20 -top-24 h-[280px] w-[280px]"
-            : "-right-28 -top-32 h-[380px] w-[380px] sm:-right-10 sm:-top-16 sm:h-[500px] sm:w-[500px]"
+            : "right-[-18%] top-[-8%] h-[280px] w-[280px] sm:right-[-10%] sm:h-[340px] sm:w-[340px] lg:right-[2%] lg:top-[6%] lg:h-[460px] lg:w-[460px]"
         }`}
       >
         <div className="hero-sun-halo" />

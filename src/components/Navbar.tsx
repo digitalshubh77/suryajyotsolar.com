@@ -145,7 +145,7 @@ export function Navbar() {
             <Brand size="nav" />
           </div>
 
-          <nav className="hidden h-full flex-1 items-center justify-center lg:flex">
+          <nav className="hidden h-full min-w-0 flex-1 items-center justify-center lg:flex">
             {primary.map((link) => {
               const active = isActive(pathname, link.href);
               const enabled = canNavigate(link.href);
@@ -153,7 +153,7 @@ export function Navbar() {
                 <NavItem
                   key={link.href}
                   href={link.href}
-                  className={`relative flex h-full items-center px-2.5 text-[13px] font-medium whitespace-nowrap xl:px-3.5 ${
+                  className={`relative flex h-full items-center px-2 text-[12px] font-medium whitespace-nowrap xl:px-3.5 xl:text-[13px] ${
                     active && enabled
                       ? "text-navy-900"
                       : enabled
@@ -180,7 +180,7 @@ export function Navbar() {
             >
               <button
                 type="button"
-                className="flex items-center gap-1 px-2.5 text-[13px] font-medium whitespace-nowrap text-navy-400 xl:px-3.5"
+                className="flex items-center gap-1 px-2 text-[12px] font-medium whitespace-nowrap text-navy-400 xl:px-3.5 xl:text-[13px]"
                 aria-expanded={moreOpen}
               >
                 Company
@@ -249,7 +249,7 @@ export function Navbar() {
               href={site.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center rounded-md bg-sun-500 px-4 py-2 text-[13px] font-semibold text-white hover:bg-sun-600 lg:inline-flex"
+              className="hidden items-center rounded-md bg-sun-500 px-3 py-2 text-[13px] font-semibold text-white hover:bg-sun-600 lg:inline-flex xl:px-4"
             >
               Get a Quote
             </a>

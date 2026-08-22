@@ -34,6 +34,10 @@
   --color-flare-red: #e44848;
 }
 
+@theme {
+  --breakpoint-lg: 56.25rem;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -66,6 +70,9 @@
   --shadow-card: 0 1px 2px rgba(6, 37, 56, 0.04), 0 8px 24px -12px rgba(12, 72, 120, 0.1);
   --shadow-card-hover: 0 1px 2px rgba(6, 37, 56, 0.05), 0 16px 32px -16px rgba(12, 72, 120, 0.18);
   --shadow-elevated: 0 24px 48px -20px rgba(6, 37, 56, 0.24);
+
+  /* Chrome "Desktop site" on phones is typically ~980px; default lg (1024px) missed it. */
+  --breakpoint-lg: 56.25rem;
 }
 
 html {

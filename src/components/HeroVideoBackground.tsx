@@ -75,9 +75,9 @@ export function HeroVideoBackground() {
         preload="auto"
         onError={handleError}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/55 to-transparent lg:via-navy-900/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-navy-900/30" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_20%,rgba(252,168,24,0.14),transparent_40%)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-900/92 via-navy-900/70 to-navy-900/25 lg:via-navy-900/55 lg:to-navy-900/15" />
+      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-navy-900/25" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_88%_18%,rgba(252,168,24,0.16),transparent_38%)]" />
     </div>
   );
 }

@@ -33,7 +33,7 @@ export function HeroHeadline() {
       </motion.p>
       <motion.h1
         variants={item}
-        className="mt-3 max-w-3xl text-left text-[36px] font-semibold leading-[1.05] tracking-tight text-white sm:text-[48px] lg:text-[56px]"
+        className="mt-3 max-w-3xl text-left text-[34px] font-semibold leading-[1.08] tracking-tight text-white sm:text-[44px] lg:text-[52px] xl:text-[56px]"
       >
         <span className="block text-left">Power Your Life</span>
         <span className="mt-1 block text-left bg-[linear-gradient(110deg,#fcfc00_0%,#fca818_35%,#fff9b0_50%,#00a830_78%,#0c4878_100%)] bg-[length:200%_auto] bg-clip-text text-transparent animate-headline-shimmer">

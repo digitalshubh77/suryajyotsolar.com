@@ -38,15 +38,15 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-[88vh] flex-col overflow-hidden lg:min-h-[92vh]">
+      <section className="relative flex min-h-[78vh] flex-col overflow-hidden lg:min-h-[calc(100vh-8.5rem)]">
         <HeroVideoBackground />
-        <div className="grid-texture absolute inset-0 z-[1] opacity-15" />
-        <div className="noise-overlay z-[1] opacity-40" />
+        <div className="grid-texture absolute inset-0 z-[1] opacity-10" />
+        <div className="noise-overlay z-[1] opacity-30" />
         <SolarBackground />
 
-        <div className="section-container relative z-[2] flex flex-1 items-start pb-28 pt-10 sm:pb-32 sm:pt-14 lg:items-center lg:pb-36">
-          <div className="grid w-full grid-cols-1 lg:grid-cols-2 lg:gap-16">
-            <Reveal className="w-full max-w-xl justify-self-start text-left">
+        <div className="section-container relative z-[2] flex flex-1 items-center py-16 sm:py-20 lg:py-24">
+          <div className="grid w-full items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:gap-12 xl:gap-20">
+            <Reveal className="w-full max-w-2xl text-left">
               <span className="hero-badge">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-sun-400 opacity-60 animate-pulse-dot" />
@@ -57,7 +57,7 @@ export default function Home() {
 
               <HeroHeadline />
 
-              <p className="mt-5 max-w-lg text-left text-[15px] leading-[1.75] text-white/80 sm:text-base">
+              <p className="mt-5 max-w-xl text-left text-[15px] leading-[1.75] text-white/80 sm:text-base">
                 End-to-end rooftop solar for homes, businesses, and industries —
                 assessment, installation, and net metering by one local team.
               </p>
@@ -76,7 +76,7 @@ export default function Home() {
                 ))}
               </ul>
 
-              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-wrap items-center justify-start gap-3">
                 <Button href={site.whatsappHref} variant="primary">
                   Book a Free Site Visit
                 </Button>
@@ -89,8 +89,25 @@ export default function Home() {
                 </Button>
               </div>
             </Reveal>
-            {/* Right column empty — video / sun animation stays visible */}
-            <div className="hidden lg:block" aria-hidden />
+
+            <Reveal delay={120} className="relative hidden lg:block">
+              <div className="ml-auto w-full max-w-sm space-y-3">
+                {stats.slice(0, 3).map((s) => (
+                  <div
+                    key={s.label}
+                    className="rounded-2xl border border-white/15 bg-white/12 p-5 shadow-[0_20px_50px_-24px_rgba(0,0,0,0.55)] backdrop-blur-md"
+                  >
+                    <AnimatedCounter
+                      value={s.value}
+                      className="block text-3xl font-semibold text-white"
+                    />
+                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-sun-300">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
 
